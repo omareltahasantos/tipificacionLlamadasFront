@@ -1,0 +1,49 @@
+body {
+    border: 6px solid #cccaca;
+    padding: 20%;
+}
+
+.col-container {
+    display: table;
+    width: 100%;
+  }
+
+.col1 {
+    display: table-cell;
+    padding: 16px;
+    padding-right: 100px;
+}
+
+.col2 {
+    padding: 16px;
+    display: contents;
+}
+
+header {
+  padding: 10px;
+  text-align:right;
+  margin-bottom: 15px;
+  background: #0f4da2;
+  color: white;
+  font-size: 17px;
+}
+
+.button1 {
+    margin-bottom: 150px;
+    float: right;
+
+}
+
+header div .hola-xx {
+    text-align: right;
+}
+
+div .button2 {
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+input[type='text'] { font-size: 20cm; }
