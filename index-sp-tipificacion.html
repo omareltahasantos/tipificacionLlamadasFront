@@ -8,55 +8,57 @@
 <title>Pantalla principal</title>
 <link rel="stylesheet" href="styles-sp-tipificacion.css">
 </head>
-<body>
+<body onload="startTime()">
     <header>
         <div>
-            <span class="fecha">Fecha</span>
-            <span class="hora">Hora</span><br>
-            <span class="hola">Hola</span>
-            <span class="user">XX XX</span>
+            <span id="fecha">Fecha</span>
+            <span id="hora">Hora</span><br>
+            <span id="hola">Hola</span>
+            <span id="user">XX XX</span>
         </div>
     </header>
 
     <div class="button1">
-        <input type="button" value="Descargar">
+        <input type="button" value="Descargar" onclick="output()">
+        <input type="button" value="Desconectar" onclick="logout()">
     </div>
 
     <div class="col-container">
         <div class="col1">
-                 <input type="checkbox" id="consultas-ttp" name="check" value="1" onclick="onlyOne(this)">
-                  <label for="consultas-ttp"> Consultas TTP</label><br>
-                  <input type="checkbox" id="trayectos-metro" name="check" value="1" onclick="onlyOne(this)">
-                  <label for="trayectos-metro"> Trayectos Metro</label><br>
-                  <input type="checkbox" id="metro-general" name="check" value="1" onclick="onlyOne(this)">
-                  <label for="metro-general"> Metro - General</label><br>
-                  <input type="checkbox" id="incidencia-servicio" name="check" value="1" onclick="onlyOne(this)">
-                  <label for="incidencia-servicio"> Incidencia Servicio</label><br>
-                  <input type="checkbox" id="entrega-oopp" name="check" value="1" onclick="onlyOne(this)">
-                  <label for="entrega-oopp"> Entrega de OOPP</label><br>
-                  <input type="checkbox" id="operaciones-venta" name="check" value="1" onclick="onlyOne(this)">
-                  <label for="operaciones-venta"> Operaciones de Venta</label><br>
-        </div>
-      
-        <div class="col2">
-                  <input type="checkbox" id="citas-ttp" name="check" value="1" onclick="onlyOne(this)">
-                  <label for="citas-ttp"> Citas TTP</label><br>
-                  <input type="checkbox" id="billetes-tarifas" name="check" value="1" onclick="onlyOne(this)">
-                  <label for="billetes-tarifas"> Billetes y Tarifas</label><br>
-                  <input type="checkbox" id="otras" name="check" value="1" onclick="onlyOne(this)">
-                  <label for="otras"> Otras</label><br>
-                  <input type="checkbox" id="consulta-oopp" name="check" value="1" onclick="onlyOne(this)">
-                  <label for="consulta-oopp"> Consulta de OOPP</label><br>
-                  <input type="checkbox" id="informacion-productos" name="check" value="1" onclick="onlyOne(this)">
-                  <label for="informacion-productos"> Información Productos Metro</label><br>
-                  <input type="checkbox" id="idioma" name="idioma" value="idioma">
-                  <label for="idioma"> Idioma</label><br><br>
+            <input type="checkbox" id="consultas-ttp" name="check" value="1" onclick="onlyOne(this)">
+             <label for="consultas-ttp"> Consultas TTP</label><br>
+             <input type="checkbox" id="trayectos-metro" name="check" value="1" onclick="onlyOne(this)">
+             <label for="trayectos-metro"> Trayectos Metro</label><br>
+             <input type="checkbox" id="metro-general" name="check" value="1" onclick="onlyOne(this)">
+             <label for="metro-general"> Metro - General</label><br>
+             <input type="checkbox" id="incidencia-servicio" name="check" value="1" onclick="onlyOne(this)">
+             <label for="incidencia-servicio"> Incidencia Servicio</label><br>
+             <input type="checkbox" id="entrega-oopp" name="check" value="1" onclick="onlyOne(this)">
+             <label for="entrega-oopp"> Entrega de OOPP</label><br>
+             <input type="checkbox" id="operaciones-venta" name="check" value="1" onclick="onlyOne(this)">
+             <label for="operaciones-venta"> Operaciones de Venta</label><br>
+   </div>
+ 
+   <div class="col2">
+             <input type="checkbox" id="citas-ttp" name="check" value="1" onclick="onlyOne(this)">
+             <label for="citas-ttp"> Citas TTP</label><br>
+             <input type="checkbox" id="billetes-tarifas" name="check" value="1" onclick="onlyOne(this)">
+             <label for="billetes-tarifas"> Billetes y Tarifas</label><br>
+             <input type="checkbox" id="otras" name="check" value="1" onclick="onlyOne(this)">
+             <label for="otras"> Otras</label><br>
+             <input type="checkbox" id="consulta-oopp" name="check" value="1" onclick="onlyOne(this)">
+             <label for="consulta-oopp"> Consulta de OOPP</label><br>
+             <input type="checkbox" id="informacion-productos" name="check" value="1" onclick="onlyOne(this)">
+             <label for="informacion-productos"> Información Productos Metro</label><br>
+             <input type="checkbox" id="idioma" name="idioma" value="idioma">
+             <label for="idioma"> Idioma</label><br><br>
+   </div>
         </div>
     
       <div class="button2" style="margin-top: 50px">
         <input type="submit" value="Enviar" id='submit'>
 
-
+        <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
@@ -64,7 +66,7 @@
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
         crossorigin="anonymous">
         </script>    
-    <script src="./script-sp-tipificacion.js"></script>
+        <script src="./script-sp-tipificacion.js"></script>
     
 
 </body>
